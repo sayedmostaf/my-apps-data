@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سياسة الخصوصية — بناء الجنة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest:   #0D631B;
+      --emerald:  #2E7D32;
+      --dark:     #1B5E20;
+      --mint-bg:  #F5FCED;
+      --mint-light: #E8F5E9;
+      --soft-mint: #A5D6A7;
+      --hint:     #81C784;
+      --glass:    rgba(255,255,255,0.68);
+      --border:   rgba(255,255,255,0.82);
+      --text:     #1a2e1c;
+      --sub:      #3a5c3d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(160deg, #e8f5e9 0%, #f0faf0 45%, #fafff5 100%);
+      min-height: 100vh;
+      color: var(--text);
+      direction: rtl;
+    }
+
+    /* ── Decorative blobs ── */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .blob-1 { width: 500px; height: 500px; background: var(--emerald); top: -120px; right: -100px; }
+    .blob-2 { width: 400px; height: 400px; background: var(--soft-mint); bottom: 0; left: -80px; }
+
+    /* ── Layout ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .app-icon {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, var(--dark), var(--emerald));
+      border-radius: 22px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 20px;
+      box-shadow: 0 12px 32px rgba(13,99,27,0.25);
+    }
+    .app-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+    .page-title {
+      font-size: 15px;
+      color: var(--hint);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .last-updated {
+      display: inline-block;
+      margin-top: 12px;
+      background: rgba(165,214,167,0.3);
+      border: 1px solid rgba(165,214,167,0.5);
+      border-radius: 99px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: var(--sub);
+      font-weight: 600;
+    }
+
+    /* ── Summary banner ── */
+    .summary-banner {
+      background: linear-gradient(135deg, var(--dark), var(--emerald));
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      color: #fff;
+    }
+    .summary-banner h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      opacity: 0.9;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 99px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── Glass cards ── */
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+    .card-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--forest);
+    }
+    .card p, .card li {
+      font-size: 13.5px;
+      color: var(--sub);
+      line-height: 1.85;
+    }
+    .card ul {
+      padding-right: 20px;
+      list-style: none;
+    }
+    .card ul li::before {
+      content: '✓';
+      color: var(--emerald);
+      font-weight: 700;
+      margin-left: 8px;
+    }
+    .card ul li {
+      margin-bottom: 6px;
+    }
+    .highlight {
+      background: rgba(13,99,27,0.07);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--forest);
+      font-weight: 600;
+      border-right: 3px solid var(--emerald);
+    }
+
+    /* ── Section divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(46,125,50,0.2), transparent);
+      margin: 8px 0 16px;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, var(--dark), var(--emerald));
+      border-radius: 24px;
+      padding: 28px;
+      text-align: center;
+      color: #fff;
+      margin-top: 8px;
+    }
+    .contact-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .contact-card p {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-bottom: 16px;
+    }
+    .contact-email {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 99px;
+      padding: 8px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .contact-email:hover { background: rgba(255,255,255,0.25); }
+
+    /* ── Developer card ── */
+    .dev-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .dev-avatar {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--dark), var(--emerald));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 14px;
+      box-shadow: 0 8px 24px rgba(13,99,27,0.25);
+    }
+    .dev-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 4px;
+    }
+    .dev-role {
+      font-size: 12px;
+      color: var(--hint);
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      margin-bottom: 18px;
+    }
+    .dev-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .dev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border-radius: 99px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .dev-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(13,99,27,0.2);
+    }
+    .dev-link-primary {
+      background: linear-gradient(135deg, var(--dark), var(--emerald));
+      color: #fff;
+    }
+    .dev-link-ghost {
+      background: rgba(13,99,27,0.08);
+      border: 1px solid rgba(13,99,27,0.15);
+      color: var(--forest);
+    }
+    .dev-quote {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--hint);
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--hint);
+    }
+    footer span { font-size: 16px; }
+
+    /* ── LTR block for English ── */
+    .en {
+      direction: ltr;
+      text-align: left;
+      font-size: 12.5px;
+      color: var(--hint);
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(165,214,167,0.3);
+    }
+
+    @media (max-width: 500px) {
+      .wrapper { padding: 32px 16px 60px; }
+      .app-name { font-size: 22px; }
+      .card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="app-icon">🌳</div>
+    <div class="app-name">بناء الجنة</div>
+    <div class="page-title">سياسة الخصوصية — Privacy Policy</div>
+    <div class="last-updated">آخر تحديث: مايو 2026</div>
+  </div>
+
+  <!-- Summary banner -->
+  <div class="summary-banner">
+    <h2>ملخص سريع — باختصار شديد</h2>
+    <div class="pill-row">
+      <div class="pill">🔒 لا نجمع بياناتك</div>
+      <div class="pill">📵 لا إنترنت مطلوب</div>
+      <div class="pill">💾 كل شيء على جهازك فقط</div>
+      <div class="pill">🚫 لا إعلانات</div>
+      <div class="pill">👁️ لا تتبع</div>
+    </div>
+  </div>
+
+  <!-- 1. المقدمة -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(13,99,27,0.1)">📋</div>
+      <div class="card-title">١. المقدمة</div>
+    </div>
+    <p>
+      تطبيق <strong>بناء الجنة</strong> هو تطبيق إسلامي للأذكار يساعدك على تتبع تسبيحك وبناء بناء الجنة. نحن نحترم خصوصيتك احتراماً تاماً، ولذلك صمّمنا التطبيق بحيث لا يحتاج إلى أي بيانات شخصية منك.
+    </p>
+    <div class="en">
+      <strong>بناء الجنة</strong> (Your Properties in Paradise) is an Islamic dhikr app. We fully respect your privacy and have designed the app to require no personal data from you.
+    </div>
+  </div>
+
+  <!-- 2. ما لا نجمعه -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(13,99,27,0.1)">🚫</div>
+      <div class="card-title">٢. ما لا نجمعه أبداً</div>
+    </div>
+    <ul>
+      <li>الاسم أو البريد الإلكتروني أو أي معلومات شخصية</li>
+      <li>الموقع الجغرافي</li>
+      <li>بيانات الاستخدام أو التحليلات</li>
+      <li>سجل الأذكار أو الإحصائيات</li>
+      <li>معرّف الجهاز أو أي معرّف إعلاني</li>
+    </ul>
+    <div class="highlight">
+      التطبيق يعمل بالكامل دون اتصال بالإنترنت. لا يوجد خادم يستقبل أي شيء من جهازك.
+    </div>
+    <div class="en">
+      We collect absolutely nothing. The app works fully offline — no server ever receives anything from your device.
+    </div>
+  </div>
+
+  <!-- 3. ما يُحفظ على جهازك -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(21,101,192,0.1)">💾</div>
+      <div class="card-title">٣. ما يُحفظ على جهازك فقط</div>
+    </div>
+    <p>يحفظ التطبيق البيانات التالية محلياً على جهازك فقط باستخدام <strong>SharedPreferences</strong>، ولا يُرسَل منها شيء لأي جهة:</p>
+    <div class="divider"></div>
+    <ul>
+      <li>عدد مرات كل ذكر في اليوم الحالي</li>
+      <li>سجل الأيام السابقة لحساب الإحصائيات</li>
+      <li>سلسلة الأيام المتتالية وأفضل سلسلة</li>
+      <li>تاريخ آخر استخدام لإعادة التعيين اليومي</li>
+    </ul>
+    <div class="highlight">
+      يمكنك حذف هذه البيانات في أي وقت بحذف التطبيق أو مسح بيانات التطبيق من إعدادات جهازك.
+    </div>
+    <div class="en">
+      Only dhikr counts, daily logs, and streak data are stored locally via SharedPreferences. Deleting the app removes all data permanently.
+    </div>
+  </div>
+
+  <!-- 4. الأذونات -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(74,20,140,0.1)">🔑</div>
+      <div class="card-title">٤. الأذونات المطلوبة</div>
+    </div>
+    <p>لا يطلب التطبيق أي أذونات خاصة. لا يصل إلى:</p>
+    <div class="divider"></div>
+    <ul>
+      <li>الكاميرا أو الميكروفون</li>
+      <li>جهات الاتصال أو الرسائل</li>
+      <li>الموقع الجغرافي</li>
+      <li>الملفات أو مساحة التخزين الخارجية</li>
+      <li>الاتصال بالإنترنت</li>
+    </ul>
+    <div class="en">
+      No special permissions required. The app does not access your camera, contacts, location, files, or internet connection.
+    </div>
+  </div>
+
+  <!-- 5. الخدمات الخارجية -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(230,81,0,0.1)">🔗</div>
+      <div class="card-title">٥. الخدمات الخارجية</div>
+    </div>
+    <p>
+      لا يستخدم التطبيق أي خدمات خارجية، ولا مكتبات تحليل بيانات مثل Firebase أو Google Analytics أو Crashlytics أو ما شابهها.
+    </p>
+    <div class="highlight">
+      الاستثناء الوحيد: خط <strong>Plus Jakarta Sans</strong> يُحمَّل من Google Fonts عند أول تشغيل إذا كان جهازك متصلاً بالإنترنت. بعد ذلك يُخزَّن محلياً.
+    </div>
+    <div class="en">
+      No third-party SDKs, analytics, or crash reporting tools are used. The only exception is the Plus Jakarta Sans font loaded once from Google Fonts on first launch.
+    </div>
+  </div>
+
+  <!-- 6. الأطفال -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(0,105,92,0.1)">👶</div>
+      <div class="card-title">٦. خصوصية الأطفال</div>
+    </div>
+    <p>
+      التطبيق مناسب لجميع الأعمار. نظراً لأننا لا نجمع أي بيانات على الإطلاق، فلا توجد أي مخاوف تتعلق بخصوصية الأطفال.
+    </p>
+    <div class="en">
+      The app is suitable for all ages. Since we collect no data whatsoever, there are no child privacy concerns.
+    </div>
+  </div>
+
+  <!-- 7. التغييرات -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(13,99,27,0.1)">📝</div>
+      <div class="card-title">٧. تغييرات على هذه السياسة</div>
+    </div>
+    <p>
+      إذا أجرينا أي تغيير جوهري على سياسة الخصوصية، سنُحدّث تاريخ "آخر تحديث" في أعلى هذه الصفحة ونُعلم المستخدمين عبر تحديث التطبيق على متجر Google Play.
+    </p>
+    <div class="en">
+      If we make material changes, we will update the "last updated" date above and notify users via a Google Play app update.
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-card">
+    <h3>تواصل معنا — Contact Us</h3>
+    <p>إذا كان لديك أي سؤال حول هذه السياسة، تواصل معنا على</p>
+    <a href="mailto:sayed.mostafa.apps@gmail.com" class="contact-email">
+      sayed.mostafa.apps@gmail.com
+    </a>
+  </div>
+
+  <!-- Developer Section -->
+  <div class="dev-card">
+    <div class="dev-avatar">👨‍💻</div>
+    <div class="dev-name">Sayed Mostafa</div>
+    <div class="dev-role">Flutter Developer · تطوير تطبيقات الجوال</div>
+    <div class="dev-links">
+      <a href="https://sayedmostafa.netlify.app" target="_blank" class="dev-link dev-link-primary">
+        🌐 Portfolio
+      </a>
+      <a href="mailto:sayed.mostafa.apps@gmail.com" class="dev-link dev-link-ghost">
+        ✉️ تواصل معي
+      </a>
+    </div>
+    <div class="dev-quote">
+      "أبني تطبيقات تُقرّب الناس من دينهم"
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span>🌳</span>
+    <p style="margin-top:8px">© 2026 بناء الجنة — جميع الحقوق محفوظة</p>
+    <p style="margin-top:4px">"يغرس لك بكل كلمة منها شجرة في الجنة"</p>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Blockrix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep:   #0D140D;
+      --bg-light:  #1B261B;
+      --accent:    #34C759;
+      --accent-dim: rgba(52, 199, 89, 0.2);
+      --lcd-green: #9EAD86;
+      --glass-bg:  rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --text-main: #FFFFFF;
+      --text-dim:  rgba(255, 255, 255, 0.6);
+      --card-radius: 24px;
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-deep);
+      background-image: 
+        radial-gradient(circle at 0% 0%, rgba(52, 199, 89, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(158, 173, 134, 0.05) 0%, transparent 50%);
+      min-height: 100vh;
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated Background Blobs ── */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: -1;
+      opacity: 0.4;
+      animation: drift 20s infinite alternate ease-in-out;
+    }
+    .blob-1 { width: 600px; height: 600px; background: rgba(52, 199, 89, 0.1); top: -200px; right: -100px; }
+    .blob-2 { width: 500px; height: 500px; background: rgba(158, 173, 134, 0.08); bottom: -100px; left: -100px; animation-delay: -5s; }
+
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(50px, 80px) scale(1.1); }
+    }
+
+    /* ── Layout ── */
+    .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .logo-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
+    }
+
+    .app-icon {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1B261B, #0D140D);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 0 1px var(--glass-border);
+      border: 1px solid rgba(52, 199, 89, 0.2);
+      color: var(--accent);
+    }
+
+    .app-name {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+      background: linear-gradient(to bottom, #fff, #aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-title {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.8;
+    }
+
+    .last-updated {
+      display: inline-block;
+      margin-top: 20px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(52, 199, 89, 0.3);
+      border-radius: 99px;
+      padding: 6px 18px;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── Summary Banner ── */
+    .summary-banner {
+      background: linear-gradient(135deg, rgba(52, 199, 89, 0.15), rgba(27, 38, 27, 0.4));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(52, 199, 89, 0.2);
+      border-radius: var(--card-radius);
+      padding: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .summary-banner h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: 99px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .pill:hover {
+      background: rgba(52, 199, 89, 0.1);
+      border-color: rgba(52, 199, 89, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ── Glass Cards ── */
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 32px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-dim);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .card p, .card li {
+      font-size: 15px;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+
+    .card ul {
+      margin-top: 16px;
+      padding-left: 24px;
+      list-style: none;
+    }
+
+    .card ul li {
+      position: relative;
+      margin-bottom: 12px;
+      padding-left: 10px;
+    }
+
+    .card ul li::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .highlight-box {
+      background: rgba(52, 199, 89, 0.05);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ── Contact Section ── */
+    .contact-card {
+      background: linear-gradient(135deg, #1B261B, #0D140D);
+      border: 1px solid rgba(52, 199, 89, 0.2);
+      border-radius: var(--card-radius);
+      padding: 40px;
+      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    }
+
+    .contact-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .contact-card p {
+      font-size: 15px;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #000;
+      padding: 14px 32px;
+      border-radius: 99px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(52, 199, 89, 0.2);
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(52, 199, 89, 0.3);
+      filter: brightness(1.1);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--glass-border);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .wrapper { padding: 40px 20px; }
+      .app-name { font-size: 28px; }
+      .card { padding: 24px; }
+      .summary-banner { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="wrapper">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <div class="app-icon">
+        <img src="assets/images/app_icon.png" alt="Blockrix Icon" style="width: 80%; height: 80%; object-fit: contain;">
+      </div>
+    </div>
+    <h1 class="app-name">BLOCKRIX</h1>
+    <p class="page-title">Privacy Policy</p>
+    <div class="last-updated">Effective Date: May 2026</div>
+  </header>
+
+  <!-- Quick Summary -->
+  <section class="summary-banner">
+    <h2>Quick Summary — Zero Tracking</h2>
+    <div class="pill-row">
+      <div class="pill">🔒 No Data Collection</div>
+      <div class="pill">📵 Fully Offline</div>
+      <div class="pill">💾 Local Storage Only</div>
+      <div class="pill">🚫 No Advertisements</div>
+      <div class="pill">👁️ Zero Analytics</div>
+    </div>
+  </section>
+
+  <!-- 1. Introduction -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🎮</div>
+      <h3 class="card-title">1. Introduction</h3>
+    </div>
+    <p>
+      <strong>Blockrix</strong> is a premium, retro-inspired puzzle game designed for pure entertainment. We believe your gaming experience should be private and uninterrupted. This policy explains why we don't collect your data—because we don't need it.
+    </p>
+  </div>
+
+  <!-- 2. Data Collection -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🚫</div>
+      <h3 class="card-title">2. What We NEVER Collect</h3>
+    </div>
+    <p>We do not collect, store, or share any of the following:</p>
+    <ul>
+      <li>Personal identifiers (Name, Email, Phone Number)</li>
+      <li>Geographic location or IP addresses</li>
+      <li>Device identifiers or advertising IDs</li>
+      <li>Gameplay telemetry or usage statistics</li>
+      <li>Social media profiles or contact lists</li>
+    </ul>
+    <div class="highlight-box">
+      Blockrix is an "Offline-First" application. It does not communicate with any external servers during gameplay.
+    </div>
+  </div>
+
+  <!-- 3. Local Data -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">💾</div>
+      <h3 class="card-title">3. Local Data Storage</h3>
+    </div>
+    <p>To provide a consistent experience, the following data is saved <strong>locally</strong> on your device using encrypted local storage (SharedPreferences/SQLite):</p>
+    <ul>
+      <li>High scores and game progress</li>
+      <li>Custom settings (Sound, Vibration, Theme)</li>
+      <li>Achievement status and unlocks</li>
+    </ul>
+    <div class="highlight-box">
+      This data stays on your device. We have no access to it. Uninstalling the app will permanently remove all local game data.
+    </div>
+  </div>
+
+  <!-- 4. Permissions -->
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">4. Minimal Permissions</h3>
+    </div>
+    <p>Blockrix requires zero sensitive permissions. We will never ask for access to your:</p>
+    <ul>
+      <li>Camera or Microphone</li>
+      <li>Contacts or SMS</li>
+      <li>Storage Photos/Media (except for saving game state)</li>
+      <li>Network/Internet access</li>
+    </ul>
+  </div>
+
+  <!-- 5. Third-Party Services -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🛡️</div>
+      <h3 class="card-title">5. Third-Party Services</h3>
+    </div>
+    <p>
+      Unlike most modern games, Blockrix contains <strong>no third-party SDKs</strong>. This means:
+    </p>
+    <ul>
+      <li>No Google Analytics or Firebase Tracking</li>
+      <li>No AdMob or advertising networks</li>
+      <li>No Crashlytics (we strive for stability without spying)</li>
+    </ul>
+  </div>
+
+  <!-- 6. Children's Privacy -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">👶</div>
+      <h3 class="card-title">6. Children's Privacy</h3>
+    </div>
+    <p>
+      Blockrix is safe for all ages. Since we do not collect any personal information, we are fully compliant with COPPA and global privacy standards regarding children.
+    </p>
+  </div>
+
+  <!-- Contact -->
+  <section class="contact-card">
+    <h3>Questions?</h3>
+    <p>If you have any questions about our commitment to privacy, feel free to reach out.</p>
+    <a href="mailto:sayed.mostafa.apps@gmail.com" class="contact-btn">
+      Contact Developer
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">
+      <img src="assets/images/app_icon.png" alt="Blockrix Logo" style="width: 40px; height: 40px; opacity: 0.6;">
+    </div>
+    <p>&copy; 2026 Blockrix. All Rights Reserved.</p>
+    <p style="margin-top: 8px; opacity: 0.4;">Pure Gaming. Pure Privacy.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
